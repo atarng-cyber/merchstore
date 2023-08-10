@@ -1,0 +1,83 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shopping Cart</title>
+    <!-- Include Bootstrap and Font Awesome CSS links here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body class="cybersecurity-bg">
+    <div class="content-wrapper">
+        <header class="header">
+            <h1 class="display-4">Shopping Cart</h1>
+            <div class="login-btn">
+                <a href="login.html" class="btn btn-secondary">Login</a>
+            </div>
+        </header>
+        <section id="navigation-buttons" class="content">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href="index.html" class="btn btn-secondary btn-block">Home</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="products.html" class="btn btn-secondary btn-block">Products</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="cart.html" class="btn btn-secondary btn-block">Cart</a>
+                </div>
+            </div>
+        </section>
+        <section id="cart-items" class="content">
+            <h2>Your Cart</h2>
+            <div id="cart-list"></div>
+            <p>Total: <span id="cart-total">$0.00</span></p>
+        </section>
+        <footer class="footer">
+            &copy; 2023 SWIFT
+        </footer>
+    </div>
+</body>
+
+</html>
+<script>
+    function displayCartItems() {
+        const cartList = document.getElementById('cart-list');
+        const cartTotal = document.getElementById('cart-total');
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let total = 0;
+
+        cartList.innerHTML = ''; // Clear existing content
+
+        if (cart.length === 0) {
+            const emptyCartText = document.createElement('p');
+            emptyCartText.textContent = 'Your cart is empty.';
+            cartList.appendChild(emptyCartText);
+        } else {
+            cart.forEach((item, index) => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('cart-item');
+                itemDiv.innerHTML = `
+                    <p>${item.name} - $${item.price.toFixed(2)}</p>
+                    <button onclick="removeFromCart(${index})" class="btn btn-danger">Remove from Cart</button>
+                `;
+                cartList.appendChild(itemDiv);
+                total += item.price;
+            });
+        }
+
+        cartTotal.textContent = `$${total.toFixed(2)}`;
+    }
+
+    displayCartItems(); // Call this function when the page loads
+
+    function removeFromCart(index) {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.splice(index, 1); // Remove the item at the specified index
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems(); // Update and display the cart contents
+    }
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+    <!-- Include Bootstrap and Font Awesome CSS links here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body class="cybersecurity-bg">
+  <div class="content-wrapper">
+    <header class="header">
+        <h1 class="display-4">Register an Account</h1>
+    </header>
+    <header class="header">
+      <h1 class="display-4">Shopping Cart</h1>
+      <div class="login-btn">
+          <a href="login.html" class="btn btn-secondary">Login</a>
+      </div>
+  </header>
+    <section id="navigation-buttons" class="content">
+      <div class="row">
+          <div class="col-md-4">
+              <a href="index.html" class="btn btn-secondary btn-block">Home</a>
+          </div>
+          <div class="col-md-4">
+              <a href="products.html" class="btn btn-secondary btn-block">Products</a>
+          </div>
+          <div class="col-md-4">
+              <a href="cart.html" class="btn btn-secondary btn-block">Cart</a>
+          </div>
+      </div>
+  </section>
+    <section id="register-form" class="content">
+        <!-- Registration Form -->
+        <input type="text" id="reg-username" placeholder="Username" class="form-control">
+        <input type="password" id="reg-password" placeholder="Password" class="form-control">
+        <button onclick="register()" class="btn btn-primary">Register</button>
+        <p id="register-message" class="message"></p>
+        
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </section>
+    
+    <footer class="footer">
+        &copy; 2023 SWIFT
+    </footer>
+  </div>
+</body>
+</html>
+<script src="login.js"></script>

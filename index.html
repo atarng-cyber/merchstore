@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Merchandise Store</title>
+    <!-- Include Bootstrap and Font Awesome CSS links here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body class="cybersecurity-bg">
+  <div class="content-wrapper">
+    <header class="header">
+        <h1 class="display-4">SWIFT Merch Store</h1>
+        <div class="login-btn">
+          <a href="login.html" class="btn btn-secondary">Login</a>
+      </div>
+    </header>
+    <section id="navigation-buttons" class="content">
+      <div class="row">
+          <div class="col-md-4">
+              <a href="index.html" class="btn btn-secondary btn-block">Home</a>
+          </div>
+          <div class="col-md-4">
+              <a href="products.html" class="btn btn-secondary btn-block">Products</a>
+          </div>
+          <div class="col-md-4">
+              <a href="cart.html" class="btn btn-secondary btn-block">Cart</a>
+          </div>
+      </div>
+  </section>
+  <section id="info" class="content">
+    <div class="info-block">
+        <h2>About Us</h2>
+        <p>Welcome to our Cybersecurity Store! We offer a wide range of products that help you stay secure in the digital world. Our merchandise is designed for tech enthusiasts, cybersecurity professionals, and anyone who values online safety. By purchasing from us, you not only get top-notch products but also support our Cybersecurity Club's initiatives and events. Join us in making the digital realm safer for everyone!</p>
+    </div>
+  </section>
+  <section id="image" class="content">
+    <div class="image-block">
+        <img src="https://media.licdn.com/dms/image/C510BAQGXn1siHodeEg/company-logo_200_200/0/1519912594729?e=2147483647&v=beta&t=HBj7nMOeNVu2A6tB_ofEFDGs4EDOZxsSaHCVMqnapa4" alt="Cybersecurity Image">
+    </div>
+  </section>
+    <section id="products" class="content">
+        <!-- Product listings from products.html -->
+        <div class="product">
+          <h2 class="display-5">Item 1</h2>
+          <p class="price h5">$10.00</p>
+          <button onclick="addToCart('Item 1', 10)" class="btn btn-success">Add to Cart</button>
+      </div>
+      <div class="product">
+          <h2 class="display-5">Item 2</h2>
+          <p class="price h5">$15.00</p>
+          <button onclick="addToCart('Item 2', 15)" class="btn btn-success">Add to Cart</button>
+      </div>
+    </section>
+    <footer class="footer">
+        &copy; 2023 SWIFT
+    </footer>
+  </div>
+</body>
+</html>
+
+<script>
+  function addToCart(productName, price) {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.push({ name: productName, price: price });
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`Added ${productName} to the cart!`);
+  }
+</script>

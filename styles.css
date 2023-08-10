@@ -1,0 +1,153 @@
+/* styles.css */
+/* styles.css */
+body {
+  background-color: #0f0f0f;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.navbar {
+  background-color: #000;
+  padding: 10px;
+}
+
+/* styles.css */
+/* ... (other styles) */
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* Center navigation on all devices */
+  display: flex; /* Use flexbox to center-align navigation items */
+  justify-content: center; /* Center items horizontally */
+}
+
+.navbar ul li {
+  display: inline;
+  margin: 0 10px; /* Add spacing between navigation items */
+}
+
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the content fills the viewport height */
+}
+
+.content {
+  flex: 1; /* Allow the content to grow and take up remaining space */
+  padding: 20px;
+  text-align: center;
+}
+
+.footer {
+  background-color: #111;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.product {
+  background-color: #1a1a1a;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+.price {
+  color: #7aff4f;
+}
+
+.btn {
+  background-color: #006400;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #008000;
+}
+
+/* Additional styles for responsive layout */
+@media screen and (max-width: 768px) {
+  .navbar ul {
+      padding-top: 10px;
+  }
+  
+  .navbar ul li {
+      display: block;
+      margin: 10px 0;
+  }
+  
+  .header h1.display-4 {
+      font-size: 24px;
+  }
+  
+  .content {
+      padding: 10px;
+  }
+}
+
+.empty-cart-message {
+  color: #888;
+  font-size: 20px;
+  margin-top: 20px;
+}
+#login-form {
+  text-align: center;
+  position: relative;
+  margin-bottom: 400px;
+}
+
+#navigation-buttons {
+  margin-top: -10px; /* Add margin above the navigation buttons */
+}
+
+.login-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.cart-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  color: #333; /* Set the text color to a dark color */
+  position: relative;
+}
+
+.cart-item button {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+#register-form {
+  text-align: center;
+  position: relative;
+  margin-bottom: 400px;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
