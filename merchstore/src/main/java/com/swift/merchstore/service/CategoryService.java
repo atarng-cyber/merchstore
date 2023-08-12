@@ -12,29 +12,29 @@ import java.util.Optional;
 public class CategoryService {
 
     @Autowired
-    private CategoryRepository categoryrepository;
+    private CategoryRepository categoryRepository;
 
     public List<Category> listCategories() {
-        return categoryrepository.findAll();
+        return categoryRepository.findAll();
     }
 
     public void createCategory(Category category) {
-        categoryrepository.save(category);
+        categoryRepository.save(category);
     }
 
     public Category readCategory(String categoryName) {
-        return categoryrepository.findByCategoryName(categoryName);
+        return categoryRepository.findByCategoryName(categoryName);
     }
 
     public Optional<Category> readCategory(Integer categoryId) {
-        return categoryrepository.findById(categoryId);
+        return categoryRepository.findById(categoryId);
     }
 
     public void updateCategory(Integer categoryID, Category newCategory) {
-        Category category = categoryrepository.findById(categoryID).get();
+        Category category = categoryRepository.findById(categoryID).get();
         category.setCategoryName(newCategory.getCategoryName());
         category.setDescription(newCategory.getDescription());
         category.setImageUrl(newCategory.getImageUrl());
-        categoryrepository.save(category);
+        categoryRepository.save(category);
     }
 }
