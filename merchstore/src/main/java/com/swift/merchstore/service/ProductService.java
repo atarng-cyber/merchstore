@@ -1,6 +1,7 @@
 package com.swift.merchstore.service;
 
 import com.swift.merchstore.dto.ProductDto;
+import com.swift.merchstore.exceptions.ProductNotExistException;
 import com.swift.merchstore.model.Category;
 import com.swift.merchstore.model.Product;
 import com.swift.merchstore.repository.ProductRepository;
@@ -59,5 +60,12 @@ public class ProductService {
         product.setName(productDto.getName());
         product.setPrice(productDto.getPrice());
         productRepository.save(product);
+    }
+
+    public Product getProductById(Integer productId) throws ProductNotExistException {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (!optionalProduct.isPresent())
+            throw new ProductNotExistException("Product id is invalid " + productId);
+        return optionalProduct.get();
     }
 }
