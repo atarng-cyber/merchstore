@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,7 @@ public class ProductController {
         if(!optionalCategory.isPresent()){
             return new ResponseEntity<>(new ApiResponse(false, "category does not exist"), HttpStatus.BAD_REQUEST);
         }
+        Category category = optionalCategory.get();
         productService.createProduct(productDto, optionalCategory.get());
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "product has been added"), HttpStatus.CREATED);
     }
@@ -47,6 +49,7 @@ public class ProductController {
         if(!optionalCategory.isPresent()){
             return new ResponseEntity<>(new ApiResponse(false, "category does not exist"), HttpStatus.BAD_REQUEST);
         }
+        Category category = optionalCategory.get();
         productService.updateProduct(productDto, productId);
         return new ResponseEntity<ApiResponse>(new ApiResponse(true, "product has been updated"), HttpStatus.OK);
     }
