@@ -8,7 +8,7 @@ public class ProductDto {
     private Integer id;
     private @NotNull String name;
     private @NotNull String imageURL;
-    private @NotNull double price;
+    private @NotNull int price;
     private @NotNull String description;
     private @NotNull Integer categoryId;
 
@@ -31,11 +31,11 @@ public class ProductDto {
         this.imageURL = imageURL;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
